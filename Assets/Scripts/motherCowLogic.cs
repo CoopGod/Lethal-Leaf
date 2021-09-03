@@ -2,11 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class motherCowLogic : MonoBehaviour
+public class MotherCowLogic : LivingEntity
 {
     public float reactionTime = 0.75f;
+    public float damage = 1;
     float attackTime;
     bool playerInRange = false;
+
+    IDamageable player;
+
+    protected override void Start()
+    {
+        base.Start();
+        player = FindObjectOfType<Player>().gameObject.GetComponent<IDamageable>();
+    } // Start
 
     void Update()
     {
@@ -17,7 +26,7 @@ public class motherCowLogic : MonoBehaviour
             // if player is still in range, end them
             if (playerInRange == true)
             {
-                Debug.Log("Player is dead");
+                player.TakeDamage(damage);
             }
         }
     } // Update is called once per frame
@@ -34,4 +43,4 @@ public class motherCowLogic : MonoBehaviour
     {
         playerInRange = false;
     } // let update know if the player has escaped the cow
-}
+} 
