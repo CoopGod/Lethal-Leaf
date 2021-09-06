@@ -27,7 +27,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
     [ContextMenu ("Self Destruct")]
     protected void Die()
     {
-        if(OnDeath != null){ Debug.Log("OnDeath called"); OnDeath(); }
+        if(OnDeath != null){ OnDeath(); }
         Destroy(gameObject);
     } // That bitch is officially dead
 
