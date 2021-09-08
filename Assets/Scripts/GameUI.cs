@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GameUI : MonoBehaviour
 {
     public GameObject gameLoseMenu;
     public GameObject gameWinMenu;
+    public Button retryButtonObj;
+    public Button mainMenuButtonObj;
     
     private string currentLevel;
 
@@ -14,15 +17,9 @@ public class GameUI : MonoBehaviour
     {
         FindObjectOfType<Player>().OnDeath += OnGameOver;
         currentLevel = SceneManager.GetActiveScene().name;
+        retryButtonObj.onClick.AddListener(RetryButton);
+        mainMenuButtonObj.onClick.AddListener(MainMenu);
     } // Called once on the starting frame
-
-    void Update()
-    {
-        if(Input.GetKeyDown("space"))
-        {
-            SceneManager.LoadScene(currentLevel);
-        }
-    } // Check for retry button pressed
 
     void OnGameOver()
     {
@@ -37,13 +34,12 @@ public class GameUI : MonoBehaviour
 
     public void MainMenu()
     {
-        // Will be activated by the MainMenu button
-        // Not implemented yet
+        SceneManager.LoadScene(0);
     } // Return to the MainMenu when called
 
-    public void SettingsMenu()
+    public void RetryButton()
     {
-        // Will be activated upon button press
-        // Not implemented yet
-    } // Open a settings screen when called
+        SceneManager.LoadScene(currentLevel);
+    }
+
 } // End of Class
