@@ -22,6 +22,8 @@ public class MotherCowLogic : LivingEntity
     Color originalColor;
     Color angryColor;
 
+    Animator animator;
+
     protected override void Start()
     {
         base.Start();
@@ -30,6 +32,7 @@ public class MotherCowLogic : LivingEntity
         cowSprite = GetComponent<SpriteRenderer>();
         originalColor = cowSprite.color;
         angryColor = Color.red;
+        animator = GetComponent<Animator>();
     } // Start
 
     void Update()
@@ -39,7 +42,7 @@ public class MotherCowLogic : LivingEntity
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        attackTime = Time.time + reactionTime;
+        // attackTime = Time.time + reactionTime; // don't need anymore -- matt lemme know what you're planning regarding the old way of attacking
         playerInRange = true;
         StartCoroutine( AngerManagement() );
     } // set attack time if player is in range
@@ -59,7 +62,13 @@ public class MotherCowLogic : LivingEntity
             yield return null;
         } // Get angry when da human is intruding on his private time
 
-        if(angryPercent >= 1 && playerInRange) player.TakeDamage(damage);
+        if(angryPercent >= 1 && playerInRange)
+        {
+            player.TakeDamage(damage);
+            animator.SetBool("isAttacking", true);
+            yield return new WaitForSeconds(0.87f);
+            animator.SetBool("isAttacking", false);
+        } // Attack player and play animation
 
         while(angryPercent >= 0 && !playerInRange)
         {
