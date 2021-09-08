@@ -66,7 +66,7 @@ public class MotherCowLogic : LivingEntity
         {
             player.TakeDamage(damage);
             animator.SetBool("isAttacking", true);
-            yield return new WaitForSeconds(0.87f);
+            yield return new WaitForSeconds(0.87f); // it works trust me
             animator.SetBool("isAttacking", false);
         } // Attack player and play animation
 
