@@ -10,12 +10,17 @@ public class MotherCowLogic : LivingEntity
     public float attackTime = 1;
     public float collisionRadius;
 
+    private float angryPercent = 0;
+    private float calmPercent = 1;
+
     bool playerInRange = false; 
 
     IDamageable player;
     Transform target;
     Collider2D circleCollider;
     SpriteRenderer cowSprite;
+    Color originalColor;
+    Color angryColor;
 
     protected override void Start()
     {
@@ -23,43 +28,47 @@ public class MotherCowLogic : LivingEntity
         player = FindObjectOfType<Player>().gameObject.GetComponent<IDamageable>();
         target = FindObjectOfType<Player>().transform;
         cowSprite = GetComponent<SpriteRenderer>();
+        originalColor = cowSprite.color;
+        angryColor = Color.red;
     } // Start
 
     void Update()
     {
-        if (Time.time >= attackTime) // if it is time for the cow to attack...
-        {
-            // player animation or whatever...
-
-            // if player is still in range, end them
-            if (playerInRange == true)
-            {
-                player.TakeDamage(damage);
-            }
-        }
+        
     } // Update is called once per frame
 
     void OnTriggerEnter2D(Collider2D col)
     {
         attackTime = Time.time + reactionTime;
         playerInRange = true;
-        cowSprite.color = Color.red;
+        StartCoroutine( AngerManagement() );
     } // set attack time if player is in range
 
     void OnTriggerExit2D(Collider2D col)
     {
         playerInRange = false;
-        cowSprite.color = Color.white;
+        StartCoroutine( AngerManagement() );
     } // let update know if the player has escaped the cow
 
-    // IEnumerator Attack()
-    // {
+    IEnumerator AngerManagement()
+    {   
+        while(angryPercent <= 1 && playerInRange)
+        {
+            cowSprite.color = Color.Lerp(originalColor, angryColor, angryPercent);
+            angryPercent += Time.deltaTime * reactionTime;
+            yield return null;
+        } // Get angry when da human is intruding on his private time
 
-    // } // Attack the player after changing color to show anger.
+        if(angryPercent >= 1 && playerInRange) player.TakeDamage(damage);
 
-    // IEnumerator CalmDown()
-    // {
+        while(angryPercent >= 0 && !playerInRange)
+        {
+            cowSprite.color = Color.Lerp(originalColor, angryColor, angryPercent);
+            angryPercent -= Time.deltaTime * reactionTime;
+            yield return null;
+        } // Calm down while the player is not near
 
-    // } // Revert the color back down so he calms down.
+        yield break;
+    } // Attack the player after changing color to show anger.
 
 } // End of class MotherCowLogic
