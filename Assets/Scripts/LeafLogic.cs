@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LeafLogic : MonoBehaviour
 {
-    public float leafSpeed;
+    float leafSpeed;
     public int minScreen;
     public int maxY;
     public int minY;
@@ -19,6 +19,7 @@ public class LeafLogic : MonoBehaviour
         Color origin = sprite.color;
         sprite.color = Color.Lerp(origin, Color.red, Random.Range(0, 0.4f));
         leaf = gameObject.GetComponent<Rigidbody2D>();
+        leafSpeed = Random.Range(5, 9);
     }
 
     // Update is called once per frame
