@@ -17,7 +17,7 @@ public class LeafLogic : MonoBehaviour
         transform.Rotate(0, 0, Random.Range(0, 360), Space.Self);
         sprite = gameObject.GetComponent<SpriteRenderer>();
         Color origin = sprite.color;
-        sprite.color = Color.Lerp(origin, Color.red, Random.Range(0.01f, 0.4f));
+        sprite.color = Color.Lerp(origin, Color.red, Random.Range(0, 0.4f));
         leaf = gameObject.GetComponent<Rigidbody2D>();
     }
 
