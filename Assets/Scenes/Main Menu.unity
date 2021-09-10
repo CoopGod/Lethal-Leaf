@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 5087044}
   - component: {fileID: 5087043}
   - component: {fileID: 5087045}
+  - component: {fileID: 5087046}
   m_Layer: 0
   m_Name: Leaf
   m_TagString: Untagged
@@ -200,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5087042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.89, z: 0}
+  m_LocalPosition: {x: 0, y: -4.85, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -218,6 +219,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48e6bd2d690fa048a510cb0cfacefc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leafSpeed: 5
+  minScreen: -5
+  maxY: 24
+  minY: 8
+--- !u!50 &5087046
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087042}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &183966998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -487,7 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -866,7 +892,7 @@ MonoBehaviour:
   maxX: 9
   minX: -9
   maxY: 8
-  minY: 8
+  minY: 24
 --- !u!4 &1819437289
 Transform:
   m_ObjectHideFlags: 0
