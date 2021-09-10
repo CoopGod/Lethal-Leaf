@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5087044}
   - component: {fileID: 5087043}
+  - component: {fileID: 5087045}
   m_Layer: 0
   m_Name: Leaf
   m_TagString: Untagged
@@ -199,12 +200,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5087042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 9.89, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5087045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c48e6bd2d690fa048a510cb0cfacefc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &183966998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -674,7 +687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -848,12 +861,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80248bd6e47c4e240a91e986fef05b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leavesToSpawn: 10
+  leavesToSpawn: 30
   leafPrefab: {fileID: 5087042}
   maxX: 9
   minX: -9
-  maxY: -5
-  minY: 5
+  maxY: 8
+  minY: 8
 --- !u!4 &1819437289
 Transform:
   m_ObjectHideFlags: 0
