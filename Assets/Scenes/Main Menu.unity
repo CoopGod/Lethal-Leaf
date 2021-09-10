@@ -183,7 +183,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0b21fcb66b4a4d94a8f3d739475cd591, type: 3}
-  m_Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -220,8 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leafSpeed: 5
-  minScreen: -5
-  maxY: 24
+  minScreen: -8
+  maxY: 40
   minY: 8
 --- !u!50 &5087046
 Rigidbody2D:
@@ -887,12 +887,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80248bd6e47c4e240a91e986fef05b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leavesToSpawn: 30
+  leavesToSpawn: 100
   leafPrefab: {fileID: 5087042}
   maxX: 9
   minX: -9
   maxY: 8
-  minY: 24
+  minY: 40
 --- !u!4 &1819437289
 Transform:
   m_ObjectHideFlags: 0

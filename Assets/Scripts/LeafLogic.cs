@@ -9,11 +9,15 @@ public class LeafLogic : MonoBehaviour
     public int maxY;
     public int minY;
     Rigidbody2D leaf;
+    SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.Rotate(0, 0, Random.Range(0, 360), Space.Self);
+        sprite = gameObject.GetComponent<SpriteRenderer>();
+        Color origin = sprite.color;
+        sprite.color = Color.Lerp(origin, Color.red, Random.Range(0.01f, 0.4f));
         leaf = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -26,7 +30,7 @@ public class LeafLogic : MonoBehaviour
         Vector3 pos = transform.position;
         if (pos.y < minScreen)
         {
-            pos.y = Random.Range(minY, maxY);
+            transform.position = new Vector3(pos.x, Random.Range(minY, maxY), 0);
         }
     }
 }
