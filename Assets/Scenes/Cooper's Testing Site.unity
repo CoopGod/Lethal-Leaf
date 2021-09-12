@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deadc4cd350428b4b8e5b221949bff49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerObj: {fileID: 1237271278}
   hurt: {fileID: 3302572}
   heart1: {fileID: 1630486813}
   heart2: {fileID: 873387260}
