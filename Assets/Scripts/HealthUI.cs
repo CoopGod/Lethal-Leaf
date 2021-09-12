@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-    int playerHealth;
+    public GameObject playerObj;
+    float playerHealth;
     public AudioSource hurt;
 
     // Hearts
@@ -34,6 +35,20 @@ public class HealthUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Get player health
+        if (playerObj != null)
+        {
+            playerHealth = playerObj.GetComponent<Player>().health;
+        }
+
+        // this is because once the player is removed it does weird things with the final heart... work around babyyy
+        else if(playerObj == null && !sound3Played)
+        {
+            heart1Img.color = new Color32(116, 116, 116, 255);
+            hurt.Play();
+            sound3Played = true;
+        }
+        
         if (playerHealth <= 2)
         {
             heart3Img.color = new Color32(116, 116, 116, 255);
@@ -52,16 +67,6 @@ public class HealthUI : MonoBehaviour
             {
                 hurt.Play();
                 sound2Played = true;
-            }
-        }
-
-        if (playerHealth <= 0)
-        {
-            heart1Img.color = new Color32(116, 116, 116, 255);
-            if (!sound3Played)
-            {
-                hurt.Play();
-                sound3Played = true;
             }
         }
     }
