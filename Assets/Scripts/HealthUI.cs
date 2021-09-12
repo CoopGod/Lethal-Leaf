@@ -17,6 +17,11 @@ public class HealthUI : MonoBehaviour
     Image heart2Img;
     Image heart1Img;
 
+    // to see if sound has played
+    bool sound1Played = false;
+    bool sound2Played = false;
+    bool sound3Played = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,19 +37,32 @@ public class HealthUI : MonoBehaviour
         if (playerHealth <= 2)
         {
             heart3Img.color = new Color32(116, 116, 116, 255);
-            hurt.Play();
+            if (!sound1Played)
+            {
+                hurt.Play();
+                sound1Played = true;
+            }
+            
         }
 
         if (playerHealth <= 1)
         {
             heart2Img.color = new Color32(116, 116, 116, 255);
-            hurt.Play();
+            if (!sound2Played)
+            {
+                hurt.Play();
+                sound2Played = true;
+            }
         }
 
         if (playerHealth <= 0)
         {
             heart1Img.color = new Color32(116, 116, 116, 255);
-            hurt.Play();
+            if (!sound3Played)
+            {
+                hurt.Play();
+                sound3Played = true;
+            }
         }
     }
 }
