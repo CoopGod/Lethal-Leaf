@@ -5,8 +5,10 @@ using UnityEngine;
 public class LivingEntity : MonoBehaviour, IDamageable
 {
     public float startHealth;
-    public float health;
     protected bool dead;
+
+    [HideInInspector]
+    public float health;
 
     public event System.Action OnDeath;
 

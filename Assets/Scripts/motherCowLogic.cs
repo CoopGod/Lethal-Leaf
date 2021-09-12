@@ -11,7 +11,6 @@ public class MotherCowLogic : LivingEntity
     public float collisionRadius;
 
     private float angryPercent = 0;
-    private float calmPercent = 1;
 
     bool playerInRange = false; 
 
@@ -35,14 +34,8 @@ public class MotherCowLogic : LivingEntity
         animator = GetComponent<Animator>();
     } // Start
 
-    void Update()
-    {
-        
-    } // Update is called once per frame
-
     void OnTriggerEnter2D(Collider2D col)
     {
-        // attackTime = Time.time + reactionTime; // don't need anymore -- matt lemme know what you're planning regarding the old way of attacking
         playerInRange = true;
         StartCoroutine( AngerManagement() );
     } // set attack time if player is in range
