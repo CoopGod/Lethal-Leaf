@@ -8,18 +8,22 @@ public class LeafPile : MonoBehaviour
     public GameObject leaf;
     public float leafMinSize = 25f;
     public float leafMaxSize = 40f;
+    public float timeToRake = 5f;
     public int numberOfLeaves = 50;
+
+    private float rakingTime = 0f;
+    private float rakedPercent = 0f;
     
     public LayerMask leafLayer;
 
     CircleCollider2D circleCollider;
-    ContactFilter2D contactFilter;
     List<GameObject> leaves = new List<GameObject>();
+    Transform center;
 
     void Start()
     {
         circleCollider = gameObject.GetComponent<CircleCollider2D>();
-        contactFilter.SetLayerMask(leafLayer);
+        center = gameObject.transform;
         SpawnLeaves();
     } // Start is called before the first frame update
 
@@ -51,7 +55,7 @@ public class LeafPile : MonoBehaviour
     {
         if(collider == FindObjectOfType<Player>().GetComponent<BoxCollider2D>())
         {
-            // StartCoroutine( RakeLeaves() );
+            StartCoroutine( RakeLeaves() );
         } // Runs if the collider that entered was the player
     } // Upon something entering the object range
 
@@ -59,14 +63,36 @@ public class LeafPile : MonoBehaviour
     {
         if(collider == FindObjectOfType<Player>().GetComponent<BoxCollider2D>())
         {
-            // StopCoroutine( RakeLeaves() );
+            print("Stopping Coroutine");
+            StopCoroutine( RakeLeaves() );
         } // Runs if the collider that entered was the player
     } // Upon something exiting the collider range
 
-    // IEnumerator RakeLeaves()
-    // {
-        
-        
-    //     yield return null;
-    // } // Rake the leaves by pulling them towards the center.
+    void MoveLeaves(float percentageToMove)
+    {
+        for(int i = 0; i < leaves.Count; i++)
+        {
+            Transform leaf = leaves[i].transform;
+            float distance = Vector2.Distance(center.position, leaf.position);
+            leaf.position = Vector2.MoveTowards(leaf.position, center.position, distance * percentageToMove);
+        } // Loop through all the leaves in the leaves list
+    } // Move the leaves toward the required direction when this fucntion is called
+
+    IEnumerator RakeLeaves()
+    {
+        while(rakingTime < timeToRake)
+        {
+            float oldPercent;
+            float percentageToMove;
+            rakingTime += Time.deltaTime;
+            oldPercent = rakedPercent;
+            rakedPercent = rakingTime / timeToRake;
+            percentageToMove = rakedPercent - oldPercent;
+            MoveLeaves(percentageToMove);
+            yield return null;
+        } // Run until the leaves are finished being raked
+
+        print("The player has finished raking this pile.");
+        yield return null;
+    } // Rake the leaves by pulling them towards the center.
 } // End of class

@@ -10,21 +10,28 @@ public class GameUI : MonoBehaviour
     public GameObject gameWinMenu;
     public Button retryButtonObj;
     public Button mainMenuButtonObj;
+    public Button nextLevelButtonObj;
     
-    private string currentLevel;
+    private int currentLevel;
 
     void Start()
     {
         FindObjectOfType<Player>().OnDeath += OnGameOver;
-        currentLevel = SceneManager.GetActiveScene().name;
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
         retryButtonObj.onClick.AddListener(RetryButton);
         mainMenuButtonObj.onClick.AddListener(MainMenu);
+        nextLevelButtonObj.onClick.AddListener(NextLevel);
     } // Called once on the starting frame
 
     void OnGameOver()
     {
         ShowGameOverMenu(gameLoseMenu);
     } // Called by the Action within LivingEntity when the player dies
+
+    void OnGameWin()
+    {
+        ShowGameOverMenu(gameWinMenu);
+    } // Called when the player wins the game
 
     public void ShowGameOverMenu(GameObject gameOverMenu)
     {
@@ -40,6 +47,11 @@ public class GameUI : MonoBehaviour
     public void RetryButton()
     {
         SceneManager.LoadScene(currentLevel);
-    }
+    } // When Retry Button is clicked
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(currentLevel + 1);
+    } // Go to the next level
 
 } // End of Class
