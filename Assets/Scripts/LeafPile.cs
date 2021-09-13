@@ -51,13 +51,16 @@ public class LeafPile : MonoBehaviour
     {
         if(collider == FindObjectOfType<Player>().GetComponent<BoxCollider2D>())
         {
-            // StartCoroutine(RakeLeaves());
-        }
+            // StartCoroutine( RakeLeaves() );
+        } // Runs if the collider that entered was the player
     } // Upon something entering the object range
 
     void OnTriggerExit2D(Collider2D collider)
     {
-
+        if(collider == FindObjectOfType<Player>().GetComponent<BoxCollider2D>())
+        {
+            // StopCoroutine( RakeLeaves() );
+        } // Runs if the collider that entered was the player
     } // Upon something exiting the collider range
 
     // IEnumerator RakeLeaves()
