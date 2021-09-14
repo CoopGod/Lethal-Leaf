@@ -326,7 +326,7 @@ MonoBehaviour:
   player: {fileID: 1237271278}
   spriteRenderer: {fileID: 259085892}
   speed: 140
-  reactionTime: 1.5
+  reactionTime: 2
   animator: {fileID: 259085895}
 --- !u!95 &259085895
 Animator:
