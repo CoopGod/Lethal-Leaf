@@ -17,6 +17,7 @@ public class GameUI : MonoBehaviour
     void Start()
     {
         FindObjectOfType<Player>().OnDeath += OnGameOver;
+        FindObjectOfType<ScoreUI>().allRaked += OnGameWin;
         currentLevel = SceneManager.GetActiveScene().buildIndex;
         retryButtonObj.onClick.AddListener(RetryButton);
         mainMenuButtonObj.onClick.AddListener(MainMenu);

@@ -13,11 +13,13 @@ public class LeafPile : MonoBehaviour
 
     private float rakingTime = 0f;
     private float rakedPercent = 0f;
+    private bool raked = false;
     
     public LayerMask leafLayer;
 
     CircleCollider2D circleCollider;
     List<GameObject> leaves = new List<GameObject>();
+    List<float> distances = new List<float>();
     Transform center;
 
     void Start()
@@ -38,6 +40,7 @@ public class LeafPile : MonoBehaviour
             newLeaf.transform.rotation = Quaternion.Euler(0,0, Random.Range(0,360));
             newLeaf.transform.localScale = new Vector3(randomSize, randomSize, leaf.transform.position.z);
             leaves.Add(newLeaf); // Add the leaves to a list so I can move them later.
+            distances.Add(Vector2.Distance(center.position, newLeaf.transform.position));
         } // Spawn the number of leaves desired at a random position and rotation within the circle collider of this object
 
     } // Spawn the leaves
@@ -73,7 +76,7 @@ public class LeafPile : MonoBehaviour
         for(int i = 0; i < leaves.Count; i++)
         {
             Transform leaf = leaves[i].transform;
-            float distance = Vector2.Distance(center.position, leaf.position);
+            float distance = distances[i] / 2;
             leaf.position = Vector2.MoveTowards(leaf.position, center.position, distance * percentageToMove);
         } // Loop through all the leaves in the leaves list
     } // Move the leaves toward the required direction when this fucntion is called
@@ -91,6 +94,12 @@ public class LeafPile : MonoBehaviour
             MoveLeaves(percentageToMove);
             yield return null;
         } // Run until the leaves are finished being raked
+
+        if(FindObjectOfType<ScoreUI>() != null && !raked)
+        {
+            FindObjectOfType<ScoreUI>().UpdateScore();
+            raked = true;
+        } // Add score
 
         print("The player has finished raking this pile.");
         yield return null;

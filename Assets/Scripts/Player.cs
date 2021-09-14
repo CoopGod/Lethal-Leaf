@@ -19,6 +19,5 @@ public class Player: LivingEntity
     {
         Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         player.MovePosition(player.position += (direction * speed * Time.deltaTime)); 
-        
     } // Update is called once per frame
 } // End of class 
