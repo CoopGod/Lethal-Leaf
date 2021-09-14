@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: df7b460ffdda8804bb6acef92dfb1df3
+guid: 733fb59f4e1f530479c35da891d06188
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8636221404721523813
-    second: sheep_0
+      213: -3849344410414710925
+    second: sheepConfused_0
   - first:
-      213: 481110650328655083
-    second: sheep_1
+      213: -3947987569951843746
+    second: sheepConfused_1
   - first:
-      213: -3776486562799753565
-    second: sheep_2
-  - first:
-      213: 8999477905645186640
-    second: sheep_3
+      213: 5958396941163398977
+    second: sheepConfused_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,7 +112,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheep_0
+      name: sheepConfused_0
       rect:
         serializedVersion: 2
         x: 0
@@ -129,14 +126,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b93d2f9936af52880800000000000000
-      internalID: -8636221404721523813
+      spriteID: 37f781747a1649ac0800000000000000
+      internalID: -3849344410414710925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheep_1
+      name: sheepConfused_1
       rect:
         serializedVersion: 2
         x: 32
@@ -150,14 +147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be42f72669f3da600800000000000000
-      internalID: 481110650328655083
+      spriteID: e5adc53f83ee539c0800000000000000
+      internalID: -3947987569951843746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheep_2
+      name: sheepConfused_2
       rect:
         serializedVersion: 2
         x: 64
@@ -171,29 +168,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a6e845da79379bc0800000000000000
-      internalID: -3776486562799753565
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheep_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05e25f1597194ec70800000000000000
-      internalID: 8999477905645186640
+      spriteID: 14781d4f27a70b250800000000000000
+      internalID: 5958396941163398977
       vertices: []
       indices: 
       edges: []

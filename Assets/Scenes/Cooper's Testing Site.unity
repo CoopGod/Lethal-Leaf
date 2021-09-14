@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 259085893}
   - component: {fileID: 259085892}
   - component: {fileID: 259085894}
+  - component: {fileID: 259085895}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -285,7 +286,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: df7b460ffdda8804bb6acef92dfb1df3, type: 3}
+  m_Sprite: {fileID: -8636221404721523813, guid: df7b460ffdda8804bb6acef92dfb1df3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -326,6 +327,26 @@ MonoBehaviour:
   spriteRenderer: {fileID: 259085892}
   speed: 140
   reactionTime: 1.5
+  animator: {fileID: 259085895}
+--- !u!95 &259085895
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259085891}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 446f076ddf0275046a4a2dfa2aaf9145, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1024832689
 PrefabInstance:
   m_ObjectHideFlags: 0

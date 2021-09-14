@@ -13,6 +13,7 @@ public class SheepLogic : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public float speed;
     public float reactionTime;
+    public Animator animator;
     float xSpeed = 0;
     float ySpeed = 0;
     bool goTime = true;
@@ -55,11 +56,13 @@ public class SheepLogic : MonoBehaviour
         // Check if sheep is within stop spot. if so, stop moving
         if (Vector3.Distance(transform.position, stopSpot) <= 2)
         {
+            animator.SetBool("isConfused", true);
             xSpeed = 0;
             ySpeed = 0;
             if (Time.time >= stopTime + reactionTime)
             {
                 goTime = true;
+                animator.SetBool("isConfused", false);
             }
         }
 
