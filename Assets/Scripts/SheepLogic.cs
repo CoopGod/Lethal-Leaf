@@ -12,16 +12,21 @@ public class SheepLogic : MonoBehaviour
     // Sheep Variables
     public SpriteRenderer spriteRenderer;
     public float speed;
+    public float reactionTime;
     float xSpeed = 0;
     float ySpeed = 0;
+    bool goTime = true;
+    Vector3 stopSpot;
 
-    // Testing
-    bool goTime = false;
+    // fucking timing bullshit
+    float stopTime;
+    float currentTime;
 
     // Start is called before the first frame update
     void Start()
     {
         playerTrans = player.GetComponent<Transform>();
+        stopSpot = playerTrans.position;
     }
 
     // Update is called once per frame
@@ -36,16 +41,26 @@ public class SheepLogic : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
-        
-        if (Time.time >= 1)
-        {
-            goTime = true;
-        }
 
+        // If able to attack, do so
         if (goTime)
         {
+            goTime = false;
+            Debug.Log("TEST");
+            Vector3 currentPos = playerTrans.position;
+            AttackPlayer(currentPos);
             
-            AttackPlayer(playerTrans.position);
+        }
+
+        // Check if sheep is within stop spot. if so, stop moving
+        if (Vector3.Distance(transform.position, stopSpot) <= 2)
+        {
+            xSpeed = 0;
+            ySpeed = 0;
+            if (Time.time >= stopTime + reactionTime)
+            {
+                goTime = true;
+            }
         }
 
         // Move sheep (be sure to reset x&y speeds to zero during transitions)
@@ -65,5 +80,11 @@ public class SheepLogic : MonoBehaviour
         float yMultiplyer = distance / yDifference;
         xSpeed = speed / xMultiplyer;
         ySpeed = speed / yMultiplyer;
+
+        // tell sheep where to stop
+        stopSpot = playerPos;
+
+        // fucking timing
+        stopTime = (1/speed) * distance + Time.time;
     }
 }

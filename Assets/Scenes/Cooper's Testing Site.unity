@@ -325,6 +325,7 @@ MonoBehaviour:
   player: {fileID: 1237271278}
   spriteRenderer: {fileID: 259085892}
   speed: 70
+  reactionTime: 2
 --- !u!1001 &1024832689
 PrefabInstance:
   m_ObjectHideFlags: 0
