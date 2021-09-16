@@ -11,6 +11,7 @@ public class SheepLogic : MonoBehaviour
 
     // Sheep Variables
     public SpriteRenderer spriteRenderer;
+    public AudioSource hurtSound;
     public float speed;
     public float reactionTime;
     public Animator animator;
@@ -89,5 +90,13 @@ public class SheepLogic : MonoBehaviour
 
         // fucking timing
         stopTime = (1/speed) * distance + Time.time;
+    }
+
+    void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.tag == "Player")
+        {
+            hurtSound.Play();
+        }
     }
 }

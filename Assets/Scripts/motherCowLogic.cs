@@ -36,14 +36,22 @@ public class MotherCowLogic : LivingEntity
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        playerInRange = true;
-        StartCoroutine( AngerManagement() );
+        if (col.tag == "Player")
+        {
+           playerInRange = true;
+            StartCoroutine( AngerManagement() ); 
+        }
+        
     } // set attack time if player is in range
 
     void OnTriggerExit2D(Collider2D col)
     {
-        playerInRange = false;
-        StartCoroutine( AngerManagement() );
+        if (col.tag == "Player")
+        {
+            playerInRange = false;
+            StartCoroutine( AngerManagement() ); 
+        }
+        
     } // let update know if the player has escaped the cow
 
     IEnumerator AngerManagement()
