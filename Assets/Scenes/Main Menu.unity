@@ -219,7 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48e6bd2d690fa048a510cb0cfacefc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leafSpeed: 5
   minScreen: -8
   maxY: 40
   minY: 8
