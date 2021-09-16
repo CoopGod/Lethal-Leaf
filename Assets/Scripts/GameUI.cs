@@ -42,17 +42,24 @@ public class GameUI : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(0);
+        StartCoroutine(LoadScene(0));
     } // Return to the MainMenu when called
 
     public void RetryButton()
     {
-        SceneManager.LoadScene(currentLevel);
+        StartCoroutine(LoadScene(currentLevel));
     } // When Retry Button is clicked
 
     public void NextLevel()
     {
-        SceneManager.LoadScene(currentLevel + 1);
+        StartCoroutine(LoadScene(currentLevel + 1));
     } // Go to the next level
+
+    // Load scene... obviously
+    IEnumerator LoadScene(int scene) 
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(scene);
+    }
 
 } // End of Class

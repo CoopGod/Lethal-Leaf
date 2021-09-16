@@ -17,12 +17,13 @@ public class MainMenuUI : MonoBehaviour
     // Update is called once per frame
     void TaskOnClick()
     {
-        LoadScene();
+        StartCoroutine(LoadScene());
     }
 
     // Load scene... obviously
-    void LoadScene() 
+    IEnumerator LoadScene() 
     {
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(levelToLoad);
     }
 }
