@@ -1,20 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class SheepLogic : MonoBehaviour
+public class PigLogic : MonoBehaviour
 {
     // player location variables
     public GameObject player;
     Transform playerTrans;
 
-    // Sheep Variables
     public SpriteRenderer spriteRenderer;
     public AudioSource hurtSound;
     public float speed;
     public float reactionTime;
-    public Animator animator;
     float xSpeed = 0;
     float ySpeed = 0;
     bool goTime = true;
@@ -22,18 +19,19 @@ public class SheepLogic : MonoBehaviour
 
     // fucking timing bullshit
     float stopTime;
+    float currentTime;
+
 
     // Start is called before the first frame update
     void Start()
     {
         playerTrans = player.GetComponent<Transform>();
-        stopSpot = playerTrans.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Flip sheep to face player
+        // Flip pig to face player
         if (playerTrans.position.x > transform.position.x)
         {
             spriteRenderer.flipX = false;
@@ -52,24 +50,17 @@ public class SheepLogic : MonoBehaviour
             
         }
 
-        // Check if sheep is within stop spot. if so, stop moving
-        if (Vector3.Distance(transform.position, stopSpot) <= 2)
+        if (Time.time >= stopTime + reactionTime)
         {
-            animator.SetBool("isConfused", true);
-            xSpeed = 0;
-            ySpeed = 0;
-            if (Time.time >= stopTime + reactionTime)
-            {
-                goTime = true;
-                animator.SetBool("isConfused", false);
-            }
+            goTime = true;
         }
 
-        // Move sheep (be sure to reset x&y speeds to zero during transitions)
+        // Move pig
         transform.position = new Vector2(transform.position.x + (xSpeed * Time.deltaTime), transform.position.y + (ySpeed * Time.deltaTime));
     }
 
-    // Sends sheep toward a players position in that moment
+
+    // Sends pig toward a players position in that moment
     void AttackPlayer(Vector3 playerPos)
     {
         // Get location of attack
@@ -87,7 +78,7 @@ public class SheepLogic : MonoBehaviour
         stopSpot = playerPos;
 
         // fucking timing
-        stopTime = (1/speed) * distance + Time.time;
+        stopTime = reactionTime + Time.time;
     }
 
     void OnTriggerEnter2D(Collider2D target)
