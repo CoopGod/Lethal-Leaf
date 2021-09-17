@@ -12,12 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: bcd07ac2ad3b7214e9b68b8f72408ca0
   - enabled: 1
+    path: Assets/Scenes/Cooper's Testing Site.unity
+    guid: 4d8fb985a1400f24eb739eebf0a629e0
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: ef25c1fe387cc654f88ea239dc54cc07
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 4be88afa7e45e7f45867d8eeb78fcb65
-  - enabled: 1
-    path: Assets/Scenes/Cooper's Testing Site.unity
-    guid: 4d8fb985a1400f24eb739eebf0a629e0
   m_configObjects: {}

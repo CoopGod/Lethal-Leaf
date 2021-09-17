@@ -20,7 +20,7 @@ public class ScoreUI : MonoBehaviour
     {
         leafPiles.AddRange(FindObjectsOfType<LeafPile>());
         leafPileCount = leafPiles.Count;
-        UpdateScore();
+        scoreText.text = "0/" + leafPileCount;
     } // Start is called before the first frame update
 
     public void UpdateScore()
