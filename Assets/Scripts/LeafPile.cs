@@ -21,6 +21,7 @@ public class LeafPile : MonoBehaviour
     List<GameObject> leaves = new List<GameObject>();
     List<float> distances = new List<float>();
     Transform center;
+    Coroutine rakeLeavesCo = null;
 
     void Start()
     {
@@ -58,7 +59,7 @@ public class LeafPile : MonoBehaviour
     {
         if(collider == FindObjectOfType<Player>().GetComponent<BoxCollider2D>())
         {
-            StartCoroutine( RakeLeaves() );
+            rakeLeavesCo = StartCoroutine( RakeLeaves() );
         } // Runs if the collider that entered was the player
     } // Upon something entering the object range
 
@@ -66,8 +67,7 @@ public class LeafPile : MonoBehaviour
     {
         if(collider == FindObjectOfType<Player>().GetComponent<BoxCollider2D>())
         {
-            print("Stopping Coroutine");
-            StopCoroutine( RakeLeaves() );
+            StopCoroutine( rakeLeavesCo );
         } // Runs if the collider that entered was the player
     } // Upon something exiting the collider range
 
