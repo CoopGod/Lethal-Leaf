@@ -14,13 +14,14 @@ public class SheepLogic : MonoBehaviour
     public AudioSource hurtSound;
     public float speed;
     public float reactionTime;
+    public float damage = 1f;
     public Animator animator;
     float xSpeed = 0;
     float ySpeed = 0;
     bool goTime = true;
     Vector3 stopSpot;
 
-    // fucking timing bullshit
+    // fucking timing bullshit <- lol
     float stopTime;
 
     // Start is called before the first frame update
@@ -33,23 +34,26 @@ public class SheepLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Flip sheep to face player
-        if (playerTrans.position.x > transform.position.x)
+        if(playerTrans != null)
         {
-            spriteRenderer.flipX = false;
-        }
-        else
-        {
-            spriteRenderer.flipX = true;
-        }
+            // Flip sheep to face player
+            if (playerTrans.position.x > transform.position.x)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else
+            {
+                spriteRenderer.flipX = true;
+            }
 
-        // If able to attack, do so
-        if (goTime)
-        {
-            goTime = false;
-            Vector3 currentPos = playerTrans.position;
-            AttackPlayer(currentPos);
-            
+            // If able to attack, do so
+            if (goTime)
+            {
+                goTime = false;
+                Vector3 currentPos = playerTrans.position;
+                AttackPlayer(currentPos);
+                
+            }
         }
 
         // Check if sheep is within stop spot. if so, stop moving
@@ -72,6 +76,7 @@ public class SheepLogic : MonoBehaviour
     // Sends sheep toward a players position in that moment
     void AttackPlayer(Vector3 playerPos)
     {
+        
         // Get location of attack
         float distance = Vector3.Distance(playerPos, transform.position);
         float xDifference = playerPos.x - transform.position.x;
@@ -86,7 +91,7 @@ public class SheepLogic : MonoBehaviour
         // tell sheep where to stop
         stopSpot = playerPos;
 
-        // fucking timing
+        // fucking timing <- lol
         stopTime = (1/speed) * distance + Time.time;
     }
 
@@ -94,6 +99,7 @@ public class SheepLogic : MonoBehaviour
     {
         if (target.tag == "Player")
         {
+            player.GetComponent<IDamageable>().TakeDamage(damage);
             hurtSound.Play();
         }
     }

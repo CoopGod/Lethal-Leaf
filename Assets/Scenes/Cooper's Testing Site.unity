@@ -351,6 +351,7 @@ MonoBehaviour:
   hurtSound: {fileID: 75590006}
   speed: 40
   reactionTime: 0.4
+  damage: 1
 --- !u!82 &75590006
 AudioSource:
   m_ObjectHideFlags: 0

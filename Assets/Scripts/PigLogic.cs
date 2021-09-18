@@ -12,6 +12,7 @@ public class PigLogic : MonoBehaviour
     public AudioSource hurtSound;
     public float speed;
     public float reactionTime;
+    public float damage = 1;
     float xSpeed = 0;
     float ySpeed = 0;
     bool goTime = true;
@@ -31,23 +32,26 @@ public class PigLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Flip pig to face player
-        if (playerTrans.position.x > transform.position.x)
+        if(playerTrans != null)
         {
-            spriteRenderer.flipX = false;
-        }
-        else
-        {
-            spriteRenderer.flipX = true;
-        }
+            // Flip pig to face player
+            if (playerTrans.position.x > transform.position.x)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else
+            {
+                spriteRenderer.flipX = true;
+            }
 
-        // If able to attack, do so
-        if (goTime)
-        {
-            goTime = false;
-            Vector3 currentPos = playerTrans.position;
-            AttackPlayer(currentPos);
-            
+            // If able to attack, do so
+            if (goTime)
+            {
+                goTime = false;
+                Vector3 currentPos = playerTrans.position;
+                AttackPlayer(currentPos);
+                
+            }
         }
 
         if (Time.time >= stopTime + reactionTime)
@@ -85,6 +89,7 @@ public class PigLogic : MonoBehaviour
     {
         if (target.tag == "Player")
         {
+            player.GetComponent<IDamageable>().TakeDamage(damage);
             hurtSound.Play();
         }
     }

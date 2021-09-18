@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MotherCowLogic : LivingEntity
+public class MotherCowLogic : MonoBehaviour
 {
     public float reactionTime = 0.75f;
     public float damage = 1;
@@ -23,9 +23,8 @@ public class MotherCowLogic : LivingEntity
 
     Animator animator;
 
-    protected override void Start()
+    void Start()
     {
-        base.Start();
         player = FindObjectOfType<Player>().gameObject.GetComponent<IDamageable>();
         target = FindObjectOfType<Player>().transform;
         cowSprite = GetComponent<SpriteRenderer>();
