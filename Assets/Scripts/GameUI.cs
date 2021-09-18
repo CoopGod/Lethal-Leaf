@@ -12,6 +12,7 @@ public class GameUI : MonoBehaviour
     public Button mainMenuButtonObj;
     public Button nextLevelButtonObj;
     public Button mainMenuButtonObj2;
+    public Text levelHolder;
     
     private int currentLevel;
     bool gameOver = false;
@@ -25,6 +26,7 @@ public class GameUI : MonoBehaviour
         mainMenuButtonObj.onClick.AddListener(MainMenu);
         mainMenuButtonObj2.onClick.AddListener(MainMenu);
         nextLevelButtonObj.onClick.AddListener(NextLevel);
+        levelHolder.text = currentLevel.ToString();
     } // Called once on the starting frame
 
     void OnGameOver()
