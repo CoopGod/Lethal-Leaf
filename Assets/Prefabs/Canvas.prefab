@@ -117,7 +117,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0 / 1
+  m_Text: 
 --- !u!1 &737342343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,6 +1357,7 @@ MonoBehaviour:
   retryButtonObj: {fileID: 4433234702829270398}
   mainMenuButtonObj: {fileID: 4433234701585853515}
   nextLevelButtonObj: {fileID: 1556572178}
+  mainMenuButtonObj2: {fileID: 1428623090}
 --- !u!1 &4433234702307446418
 GameObject:
   m_ObjectHideFlags: 0

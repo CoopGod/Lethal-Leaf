@@ -11,8 +11,10 @@ public class GameUI : MonoBehaviour
     public Button retryButtonObj;
     public Button mainMenuButtonObj;
     public Button nextLevelButtonObj;
+    public Button mainMenuButtonObj2;
     
     private int currentLevel;
+    bool gameOver = false;
 
     void Start()
     {
@@ -21,17 +23,26 @@ public class GameUI : MonoBehaviour
         currentLevel = SceneManager.GetActiveScene().buildIndex;
         retryButtonObj.onClick.AddListener(RetryButton);
         mainMenuButtonObj.onClick.AddListener(MainMenu);
+        mainMenuButtonObj2.onClick.AddListener(MainMenu);
         nextLevelButtonObj.onClick.AddListener(NextLevel);
     } // Called once on the starting frame
 
     void OnGameOver()
     {
-        ShowGameOverMenu(gameLoseMenu);
+        if (!gameOver)
+        {
+            ShowGameOverMenu(gameLoseMenu);
+            gameOver = true;
+        }
     } // Called by the Action within LivingEntity when the player dies
 
     void OnGameWin()
     {
-        ShowGameOverMenu(gameWinMenu);
+        if (!gameOver)
+        {
+            ShowGameOverMenu(gameWinMenu);
+            gameOver = true;
+        }
     } // Called when the player wins the game
 
     public void ShowGameOverMenu(GameObject gameOverMenu)
