@@ -265,5 +265,5 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4021161428444672058}
   hurtSound: {fileID: 4021161428444672062}
   speed: 40
-  reactionTime: 0.4
+  reactionTime: 0.1
   damage: 1

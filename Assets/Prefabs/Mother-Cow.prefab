@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7817335726954638162}
   - component: {fileID: 7817335726954638160}
   - component: {fileID: 7919170370460005661}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Mother-Cow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
