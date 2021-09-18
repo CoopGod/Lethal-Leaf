@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7817335726954638162}
   - component: {fileID: 7817335726954638160}
   - component: {fileID: 7919170370460005661}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mother-Cow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,11 +138,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9b238f7353be9a40813c183145bc87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 0
   reactionTime: 1
   damage: 1
   attackRange: 10
   attackTime: 1
+  collisionRadius: 0
 --- !u!61 &7919170370460005661
 BoxCollider2D:
   m_ObjectHideFlags: 0

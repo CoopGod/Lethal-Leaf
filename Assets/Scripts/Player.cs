@@ -18,6 +18,6 @@ public class Player: LivingEntity
     void FixedUpdate()
     {
         Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        player.MovePosition(player.position += (direction * speed * Time.deltaTime)); 
+        player.position += direction * speed * Time.deltaTime; 
     } // End of Fixed Update
 } // End of class 
