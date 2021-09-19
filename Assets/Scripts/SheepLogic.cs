@@ -16,8 +16,7 @@ public class SheepLogic : MonoBehaviour
     public float reactionTime;
     public float damage = 1f;
     public Animator animator;
-    float xSpeed = 0;
-    float ySpeed = 0;
+    Vector2 xySpeed = new Vector2(0,0);
     bool goTime = true;
     Vector3 stopSpot;
 
@@ -57,11 +56,10 @@ public class SheepLogic : MonoBehaviour
         }
 
         // Check if sheep is within stop spot. if so, stop moving
-        if (Vector3.Distance(transform.position, stopSpot) <= 2)
+        if (Vector2.Distance(transform.position, stopSpot) <= 2)
         {
             animator.SetBool("isConfused", true);
-            xSpeed = 0;
-            ySpeed = 0;
+            xySpeed = new Vector2(0,0);
             if (Time.time >= stopTime + reactionTime)
             {
                 goTime = true;
@@ -70,7 +68,7 @@ public class SheepLogic : MonoBehaviour
         }
 
         // Move sheep (be sure to reset x&y speeds to zero during transitions)
-        transform.position = new Vector2(transform.position.x + (xSpeed * Time.deltaTime), transform.position.y + (ySpeed * Time.deltaTime));
+        transform.position = new Vector2(transform.position.x + (xySpeed.x * Time.deltaTime), transform.position.y + (xySpeed.y * Time.deltaTime));
     }
 
     // Sends sheep toward a players position in that moment
@@ -85,8 +83,7 @@ public class SheepLogic : MonoBehaviour
         // use speed to calculate how fast each side should mover by
         float xMultiplyer = distance / xDifference;
         float yMultiplyer = distance / yDifference;
-        xSpeed = speed / xMultiplyer;
-        ySpeed = speed / yMultiplyer;
+        xySpeed = new Vector2(speed / xMultiplyer, speed / yMultiplyer);
 
         // tell sheep where to stop
         stopSpot = playerPos;

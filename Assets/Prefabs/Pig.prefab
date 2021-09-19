@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4021161428444672048}
   - component: {fileID: 4021161428444672063}
   - component: {fileID: 4021161428444672062}
-  - component: {fileID: 4021161428444672061}
+  - component: {fileID: -4211406322486672782}
   m_Layer: 0
   m_Name: Pig
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4021161428444672057}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 22.2, z: 0}
+  m_LocalPosition: {x: 6, y: 22.2, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,19 +114,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4021161428444672057}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4021161428444672063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 0
+  Pan2D: -0.483
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -249,7 +249,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4021161428444672061
+--- !u!114 &-4211406322486672782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,12 +258,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4021161428444672057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8065332ff7c7da2408d44b76d52ee5df, type: 3}
+  m_Script: {fileID: 11500000, guid: 743b5cbe46486d744b62e97ab81a5582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  spriteRenderer: {fileID: 4021161428444672058}
-  hurtSound: {fileID: 4021161428444672062}
-  speed: 40
-  reactionTime: 0.1
+  speed: 35
   damage: 1

@@ -41,6 +41,7 @@ public class LeafPile : MonoBehaviour
             newLeaf.transform.rotation = Quaternion.Euler(0,0, Random.Range(0,360));
             newLeaf.transform.localScale = new Vector3(randomSize, randomSize, leaf.transform.position.z);
             leaves.Add(newLeaf); // Add the leaves to a list so I can move them later.
+            // Track how far the leaf is from the center of the pile. Parallel arrays are never the best solution but in this scenario it works fine.
             distances.Add(Vector2.Distance(center.position, newLeaf.transform.position));
         } // Spawn the number of leaves desired at a random position and rotation within the circle collider of this object
 
@@ -65,10 +66,13 @@ public class LeafPile : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        if(collider == FindObjectOfType<Player>().GetComponent<BoxCollider2D>())
+        if(collider != null)
         {
-            StopCoroutine( rakeLeavesCo );
-        } // Runs if the collider that entered was the player
+            if(collider == FindObjectOfType<Player>().GetComponent<BoxCollider2D>())
+            {
+                StopCoroutine( rakeLeavesCo );
+            } // Runs if the collider that entered was the player
+        }
     } // Upon something exiting the collider range
 
     void MoveLeaves(float percentageToMove)
@@ -100,8 +104,7 @@ public class LeafPile : MonoBehaviour
             FindObjectOfType<ScoreUI>().UpdateScore();
             raked = true;
         } // Add score
-
-        print("The player has finished raking this pile.");
+        
         yield return null;
     } // Rake the leaves by pulling them towards the center.
 } // End of class

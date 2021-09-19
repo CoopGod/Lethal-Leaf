@@ -8,11 +8,11 @@ public class MotherCowLogic : MonoBehaviour
     public float damage = 1;
     public float attackRange = 10;
     public float attackTime = 1;
-    public float collisionRadius;
 
     private float angryPercent = 0;
 
     bool playerInRange = false; 
+    bool takenDamage = false;
 
     IDamageable player;
     Transform target;
@@ -48,6 +48,7 @@ public class MotherCowLogic : MonoBehaviour
         if (col.tag == "Player")
         {
             playerInRange = false;
+            takenDamage = false;
             StartCoroutine( AngerManagement() ); 
         }
         
@@ -62,9 +63,10 @@ public class MotherCowLogic : MonoBehaviour
             yield return null;
         } // Get angry when da human is intruding on his private time
 
-        if(angryPercent >= 1 && playerInRange)
+        if(angryPercent >= 1 && playerInRange && !takenDamage)
         {
             player.TakeDamage(damage);
+            takenDamage = true;
             animator.SetBool("isAttacking", true);
             yield return new WaitForSeconds(0.87f); // it works trust me
             animator.SetBool("isAttacking", false);
