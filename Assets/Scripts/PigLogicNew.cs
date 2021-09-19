@@ -38,12 +38,12 @@ public class PigLogicNew : MonoBehaviour
             {
                 spriteRenderer.flipX = true;
             }
-        }
 
         // Move pig
         Vector2 direction = new Vector2(playerTrans.position.x - transform.position.x, playerTrans.position.y - transform.position.y).normalized;
         Vector3 velocity = new Vector3(direction.x * speed, direction.y * speed, 0);
         transform.position += velocity * Time.deltaTime;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D target)
