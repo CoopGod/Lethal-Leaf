@@ -17,6 +17,8 @@ public class LeafPile : MonoBehaviour
     
     public LayerMask leafLayer;
 
+    public AudioSource rakeSound;
+
     CircleCollider2D circleCollider;
     List<GameObject> leaves = new List<GameObject>();
     List<float> distances = new List<float>();
@@ -103,6 +105,7 @@ public class LeafPile : MonoBehaviour
         {
             FindObjectOfType<ScoreUI>().UpdateScore();
             raked = true;
+            rakeSound.Play();
         } // Add score
         
         yield return null;

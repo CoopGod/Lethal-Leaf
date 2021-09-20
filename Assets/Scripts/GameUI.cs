@@ -7,7 +7,9 @@ using UnityEngine;
 public class GameUI : MonoBehaviour
 {
     public GameObject gameLoseMenu;
+    public AudioSource gameLoseSound;
     public GameObject gameWinMenu;
+    public AudioSource gameWinSound;
     public Button retryButtonObj;
     public Button mainMenuButtonObj;
     public Button nextLevelButtonObj;
@@ -35,6 +37,7 @@ public class GameUI : MonoBehaviour
         {
             ShowGameOverMenu(gameLoseMenu);
             gameOver = true;
+            gameLoseSound.Play();
         }
     } // Called by the Action within LivingEntity when the player dies
 
@@ -44,6 +47,7 @@ public class GameUI : MonoBehaviour
         {
             ShowGameOverMenu(gameWinMenu);
             gameOver = true;
+            gameWinSound.Play();
         }
     } // Called when the player wins the game
 

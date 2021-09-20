@@ -68,7 +68,7 @@ public class SheepLogic : MonoBehaviour
         }
 
         // Move sheep (be sure to reset x&y speeds to zero during transitions)
-        transform.position = new Vector2(transform.position.x + (xySpeed.x * Time.deltaTime), transform.position.y + (xySpeed.y * Time.deltaTime));
+        transform.position = new Vector3(transform.position.x + (xySpeed.x * Time.deltaTime), transform.position.y + (xySpeed.y * Time.deltaTime), -6);
     }
 
     // Sends sheep toward a players position in that moment
