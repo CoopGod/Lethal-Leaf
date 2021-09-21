@@ -32,7 +32,8 @@ public class MotherCowLogic : MonoBehaviour
         originalColor = cowSprite.color;
         angryColor = Color.red;
         animator = GetComponent<Animator>();
-        circleSprite.transform.localScale = new Vector3((circleCollider.radius * 2), (circleCollider.radius * 2), 1);
+        float radiusCircle = GetComponent<CircleCollider2D>().radius;
+        circleSprite.transform.localScale = new Vector3((radiusCircle * 2), (radiusCircle * 2), 1);
     } // Start
 
     void OnTriggerEnter2D(Collider2D col)
