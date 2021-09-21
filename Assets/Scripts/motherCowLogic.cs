@@ -16,8 +16,9 @@ public class MotherCowLogic : MonoBehaviour
 
     IDamageable player;
     Transform target;
-    Collider2D circleCollider;
+    CircleCollider2D circleCollider;
     SpriteRenderer cowSprite;
+    public GameObject circleSprite;
     Color originalColor;
     Color angryColor;
 
@@ -31,6 +32,7 @@ public class MotherCowLogic : MonoBehaviour
         originalColor = cowSprite.color;
         angryColor = Color.red;
         animator = GetComponent<Animator>();
+        circleSprite.transform.localScale = new Vector3((circleCollider.radius * 2), (circleCollider.radius * 2), 1);
     } // Start
 
     void OnTriggerEnter2D(Collider2D col)
