@@ -1,8 +1,4 @@
-## Lethal Leaf
+# Lethal Leaf
 
-# BYLAW 481:
-Any man or women caught raking leaves at night shall be sentenced to **death by hanging**.
-# BYLAW 102:
-Any animal owned by one person may be not be killed, however they may be kicked, brutalized, and set to fight one another.
-# BYLAW 120:
-Cowboy hats are required to be worn by every man, women, or child, breathing or otherwise...
+## The leaves are left unraked, The animals left untamed! There is only one man for the job... **_you!_** 
+## Rake leaves while avoiding the deadly animals that are held in your farm in this arcade-style game, made for the **2021 Great Autumn Game Jam**
