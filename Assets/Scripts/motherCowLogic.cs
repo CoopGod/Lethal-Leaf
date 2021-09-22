@@ -63,7 +63,7 @@ public class MotherCowLogic : MonoBehaviour
         while(angryPercent <= 1 && playerInRange)
         {
             cowSprite.color = Color.Lerp(originalColor, angryColor, angryPercent);
-            circleSpriteRenderer.color = new Color(0.2196079f, 0.2196079f, 0.2196079f, (angryPercent * 0.1f));
+            circleSpriteRenderer.color = new Color(0.2196079f, 0.2196079f, 0.2196079f, (angryPercent * 0.2f));
             angryPercent += Time.deltaTime * reactionTime;
             yield return null;
         } // Get angry when da human is intruding on his private time
@@ -80,7 +80,7 @@ public class MotherCowLogic : MonoBehaviour
         while(angryPercent >= 0 && !playerInRange)
         {
             cowSprite.color = Color.Lerp(originalColor, angryColor, angryPercent);
-            circleSpriteRenderer.color = new Color(0.2196079f, 0.2196079f, 0.2196079f, (angryPercent * 0.1f));
+            circleSpriteRenderer.color = new Color(0.2196079f, 0.2196079f, 0.2196079f, (angryPercent * 0.2f));
             angryPercent -= Time.deltaTime * reactionTime;
             yield return null;
         } // Calm down while the player is not near
