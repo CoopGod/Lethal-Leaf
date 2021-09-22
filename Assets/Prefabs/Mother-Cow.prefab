@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.7924528, g: 0.12335351, b: 0.12335351, a: 0.11372549}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -227,6 +227,7 @@ MonoBehaviour:
   attackRange: 10
   attackTime: 1
   circleSprite: {fileID: 466475589447998283}
+  circleSpriteRenderer: {fileID: 3401256364442782730}
 --- !u!61 &7919170370460005661
 BoxCollider2D:
   m_ObjectHideFlags: 0
