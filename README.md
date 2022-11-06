@@ -8,6 +8,7 @@
 ⭐ This game boasts some awesome reviews:
 - itch.io user cvnser said "*I like how I played this even when you didn't tell me how to. Nice mechanic!*"
 - itch.io user CodingFactoryT said "*What a great game idea! I loved how you added so many interesting levels :) But personally, i don´t wanna have any of these animals as pets xD*"
+- itch.io user IviSZ said "*A fun game, an interesting fact, I've been playing it for longer than any other game released [in this game-jam] before this one...*"
 
  <p align="center">
  <img src="https://user-images.githubusercontent.com/57197353/200153701-59962ec2-84c3-4907-802f-f6a3960285f0.png" width="300px">
