@@ -17,6 +17,7 @@ public class LeafPile : MonoBehaviour
     public LayerMask leafLayer;
 
     public AudioSource rakeSound;
+    public AudioSource rakeCompleteSound;
 
     CircleCollider2D circleCollider;
     List<GameObject> leaves = new List<GameObject>();
@@ -72,6 +73,7 @@ public class LeafPile : MonoBehaviour
             if(collider == FindObjectOfType<Player>().GetComponent<BoxCollider2D>())
             {
                 StopCoroutine( rakeLeavesCo );
+                rakeSound.Stop();
             } // Runs if the collider that entered was the player
         }
     } // Upon something exiting the collider range
@@ -98,13 +100,18 @@ public class LeafPile : MonoBehaviour
             percentageToMove = rakedPercent - oldPercent;
             MoveLeaves(percentageToMove);
             yield return null;
+            if (!rakeSound.isPlaying)
+            {
+                rakeSound.Play();
+            }
         } // Run until the leaves are finished being raked
 
         if(FindObjectOfType<ScoreUI>() != null && !raked)
         {
             FindObjectOfType<ScoreUI>().UpdateScore();
             raked = true;
-            rakeSound.Play();
+            rakeSound.Stop();
+            rakeCompleteSound.Play();
         } // Add score
         
         yield return null;
