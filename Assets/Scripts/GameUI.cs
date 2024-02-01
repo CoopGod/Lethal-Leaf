@@ -15,7 +15,9 @@ public class GameUI : MonoBehaviour
     public Button nextLevelButtonObj;
     public Button mainMenuButtonObj2;
     public Text levelHolder;
-    
+    public AudioSource levelMusic;
+
+
     private int currentLevel;
     bool gameOver = false;
 
@@ -38,6 +40,8 @@ public class GameUI : MonoBehaviour
             ShowGameOverMenu(gameLoseMenu);
             gameOver = true;
             gameLoseSound.Play();
+            levelMusic.Stop();
+            Time.timeScale = 0;
         }
     } // Called by the Action within LivingEntity when the player dies
 
@@ -47,7 +51,9 @@ public class GameUI : MonoBehaviour
         {
             ShowGameOverMenu(gameWinMenu);
             gameOver = true;
+            levelMusic.volume = 0.1f;
             gameWinSound.Play();
+            Time.timeScale = 0;
         }
     } // Called when the player wins the game
 
@@ -75,6 +81,7 @@ public class GameUI : MonoBehaviour
     // Load scene... obviously
     IEnumerator LoadScene(int scene) 
     {
+        Time.timeScale = 1;
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(scene);
     }
