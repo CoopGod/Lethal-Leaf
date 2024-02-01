@@ -6,10 +6,9 @@ using UnityEngine;
 public class LeafPile : MonoBehaviour
 {
     public GameObject leaf;
-    public float leafMinSize = 25f;
-    public float leafMaxSize = 40f;
     public float timeToRake = 5f;
-    public int numberOfLeaves = 50;
+    public int minNumberOfLeaves = 15;
+    public int maxNumberOfLeaves = 40;
 
     private float rakingTime = 0f;
     private float rakedPercent = 0f;
@@ -34,14 +33,14 @@ public class LeafPile : MonoBehaviour
 
     void SpawnLeaves()
     {
+        int numberOfLeaves = Random.Range(minNumberOfLeaves, maxNumberOfLeaves);
         for(int i = 0; i < numberOfLeaves; i++)
         {
             (float, float) randomXY = RandomPoint();
-            float randomSize = Random.Range(leafMinSize, leafMaxSize);
             GameObject newLeaf = Instantiate(leaf, new Vector3(randomXY.Item1, randomXY.Item2, leaf.transform.position.z), Quaternion.identity);
             newLeaf.transform.parent = gameObject.transform;
             newLeaf.transform.rotation = Quaternion.Euler(0,0, Random.Range(0,360));
-            newLeaf.transform.localScale = new Vector3(randomSize, randomSize, leaf.transform.position.z);
+            newLeaf.transform.localScale = new Vector3(1, 1, leaf.transform.position.z);
             leaves.Add(newLeaf); // Add the leaves to a list so I can move them later.
             // Track how far the leaf is from the center of the pile. Parallel arrays are never the best solution but in this scenario it works fine.
             distances.Add(Vector2.Distance(center.position, newLeaf.transform.position));

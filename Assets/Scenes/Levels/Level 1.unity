@@ -468,6 +468,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8305671174554779923, guid: 00ef48dd353121445b4c49e6a9962bc4, type: 3}
+      propertyPath: leafMaxSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305671174554779923, guid: 00ef48dd353121445b4c49e6a9962bc4, type: 3}
+      propertyPath: leafMinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305671174554779923, guid: 00ef48dd353121445b4c49e6a9962bc4, type: 3}
+      propertyPath: numberOfLeaves
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -974,6 +986,18 @@ PrefabInstance:
     - target: {fileID: 8305671174554779921, guid: 00ef48dd353121445b4c49e6a9962bc4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305671174554779923, guid: 00ef48dd353121445b4c49e6a9962bc4, type: 3}
+      propertyPath: leafMaxSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305671174554779923, guid: 00ef48dd353121445b4c49e6a9962bc4, type: 3}
+      propertyPath: leafMinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305671174554779923, guid: 00ef48dd353121445b4c49e6a9962bc4, type: 3}
+      propertyPath: numberOfLeaves
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1604,6 +1628,18 @@ PrefabInstance:
     - target: {fileID: 8305671174554779921, guid: 00ef48dd353121445b4c49e6a9962bc4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305671174554779923, guid: 00ef48dd353121445b4c49e6a9962bc4, type: 3}
+      propertyPath: leafMaxSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305671174554779923, guid: 00ef48dd353121445b4c49e6a9962bc4, type: 3}
+      propertyPath: leafMinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305671174554779923, guid: 00ef48dd353121445b4c49e6a9962bc4, type: 3}
+      propertyPath: numberOfLeaves
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
